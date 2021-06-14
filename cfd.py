@@ -7,18 +7,25 @@ import subprocess
 #Plot results ? (SLOW!!!!)
 do_Plot = False
 
-#Grid size
-Lx = 12.8
-Ly = 12.8
+#Colormap (inferno, viridis)
+cmap = cm.inferno
 
-#Simulation time
+#Output size
+Ioutw = 480
+Iouth = 480
+
+#Grid size
+Lx = 6.4
+Ly = 6.4
+
+#Simulation time (s)
 T = 20
 
 #Space step
 dx = 0.05
 dy = 0.05
 
-#time step
+#time step      (s) 30fps
 dt = 1/30
 
 #Static velocity
@@ -63,8 +70,8 @@ for k in range(LenT):
             plt.show()
             plt.pause(0.01)
     #save frames as png
-    im = Image.fromarray(np.uint8(cm.viridis(Z)*255))
-    im = im.resize((480,480),Image.BILINEAR)
+    im = Image.fromarray(np.uint8(cmap(Z)*255))
+    im = im.resize((Ioutw,Iouth),Image.BILINEAR)
     im.save("out/cfd_%d.png"%(k))
 
 #call ffmpeg to generate mp4 video
