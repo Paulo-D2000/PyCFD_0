@@ -13,5 +13,7 @@ pip install pillow
 *FFmpeg -> https://ffmpeg.org/download.html
 
 Use:
-Create one folder called "out"
+Create one folder called "out" 
 Run and wait :)
+
+*(Check the out folder for cmap reference)*
